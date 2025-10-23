@@ -90,21 +90,23 @@ HTML = """<!doctype html><html><head>
 <meta name=viewport content="width=device-width,initial-scale=1">
 <title>Rova-4 Controller</title>
 <style>
-body{font-family:sans-serif;text-align:center;margin:20px}
-button{font-size:28px;padding:12px 22px;margin:6px}
-#row{display:flex;justify-content:center;gap:10px}
+body{{font-family:sans-serif;text-align:center;margin:20px}}
+button{{font-size:28px;padding:12px 22px;margin:6px}}
+#row{{display:flex;justify-content:center;gap:10px}}
 </style></head><body>
 <h2>Rova-4 Remote</h2>
-<div><a href="/f"><button>Forward</button></a></div>
+<div><a href="/f"><button>^ Forward</button></a></div>
 <div id=row>
-  <a href="/l"><button>Left</button></a>
-  <a href="/s"><button>Stop</button></a>
-  <a href="/r"><button>Right</button></a>
+  <a href="/l"><button><- Left</button></a>
+  <a href="/s"><button>• Stop</button></a>
+  <a href="/r"><button>-> Right</button></a>
 </div>
-<div><a href="/b"><button>Back</button></a></div>
-<p>Speed: <input type="range" id="sp" min="10000" max="65535" value="{sp}" oninput="fetch('/speed?v='+this.value)"></p>
+<div><a href="/b"><button> Back</button></a></div>
+<p>Speed: <input type="range" id="sp" min="10000" max="65535" value="{sp}" 
+oninput="fetch('/speed?v='+this.value)"></p>
 </body></html>
 """
+
 
 def serve(ip):
     addr = socket.getaddrinfo("0.0.0.0", 80)[0][-1]
